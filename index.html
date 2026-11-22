@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#14532d">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
+<title>Kas UMKM</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1>Kas UMKM</h1><div id="hari"></div></header>
+<main>
+<section id="catat" class="tab on">
+ <div class="ringkas"><div><small>Masuk hari ini</small><b id="hm" class="masuk">Rp0</b></div><div><small>Keluar hari ini</small><b id="hk" class="keluar">Rp0</b></div></div>
+ <p id="ingat" class="ingat" hidden></p>
+ <div class="seg"><button class="on" data-j="masuk">Uang masuk</button><button data-j="keluar">Uang keluar</button></div>
+ <label>Jumlah (Rp)<input id="nom" type="number" inputmode="numeric" min="1" placeholder="Contoh: 25000"></label>
+ <label>Kategori<select id="kat"></select></label>
+ <label>Catatan (boleh kosong)<input id="cat" maxlength="80"></label>
+ <label>Tanggal<input id="tgl" type="date"></label>
+ <button id="simpan" class="big">Simpan catatan</button>
+ <p id="msg" role="status"></p>
+</section>
+<section id="riwayat" class="tab"><ul id="list"></ul></section>
+<section id="utang" class="tab">
+ <div class="ringkas"><div><small>Pelanggan belum bayar</small><b id="tp" class="masuk">Rp0</b></div><div><small>Saya belum bayar</small><b id="tu" class="keluar">Rp0</b></div></div>
+ <div class="seg" id="utipe"><button class="on" data-t="piutang">Pelanggan berutang</button><button data-t="utang">Saya berutang</button></div>
+ <label>Nama<input id="unama" maxlength="60"></label>
+ <label>Jumlah (Rp)<input id="unom" type="number" inputmode="numeric" min="1"></label>
+ <label>Catatan (boleh kosong)<input id="ucat" maxlength="80"></label>
+ <label>Tanggal<input id="utgl" type="date"></label>
+ <button id="usimpan" class="big">Simpan</button>
+ <p id="umsg" role="status"></p>
+ <ul id="ulist"></ul>
+</section>
+<section id="hitung" class="tab">
+ <p class="ket">Hitung modal per produk dan harga jual yang aman.</p>
+ <label>Biaya bahan (Rp)<input id="hb" type="number" inputmode="numeric" min="0"></label>
+ <label>Biaya lain: tenaga, kemasan, gas (Rp)<input id="hl" type="number" inputmode="numeric" min="0"></label>
+ <label>Jumlah produk yang dihasilkan<input id="hj" type="number" inputmode="numeric" min="1"></label>
+ <label>Untung yang diinginkan (% dari modal)<input id="hu" type="number" inputmode="numeric" min="0" value="30"></label>
+ <label>Harga jual Anda sekarang (boleh kosong)<input id="hs" type="number" inputmode="numeric" min="0"></label>
+ <div id="hasil"></div>
+</section>
+<section id="laporan" class="tab">
+ <label>Bulan<input id="bln" type="month"></label>
+ <div id="lap"></div>
+ <div class="cad"><h2>Cadangan data</h2><p id="lastcad"></p>
+  <button id="bagi" class="alt">Kirim cadangan (WhatsApp/Drive)</button>
+  <button id="csv" class="alt">Unduh cadangan (CSV)</button>
+  <button id="imp" class="alt">Pulihkan dari cadangan</button>
+  <input id="file" type="file" accept=".csv,text/csv" hidden>
+ </div>
+</section>
+</main>
+<nav><button class="on" data-t="catat">Catat</button><button data-t="riwayat">Riwayat</button><button data-t="utang">Utang</button><button data-t="hitung">Hitung</button><button data-t="laporan">Laporan</button></nav>
+<script src="app.js"></script>
+</body></html>
